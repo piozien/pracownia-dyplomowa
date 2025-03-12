@@ -1,0 +1,38 @@
+server:
+  port: 8080
+  error:
+    include-message: always
+    include-binding-errors: always
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/finance
+    username: postgres
+    password: 123
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show-sql: true
+  messages:
+    basename: messages
+    encoding: UTF-8
+  security:
+    user:
+      name: admin
+      password: admin
+
+app:
+  cors:
+    allowed-origins: http://localhost:3000
+
+logging:
+  level:
+    org:
+      springframework:
+        security: INFO
+    graduate:
+      finance_dashboard: DEBUG
